@@ -1,0 +1,80 @@
+#-- Query 1
+use mydatabase;
+
+
+
+-- Query 2
+show dbs;
+
+
+
+-- Query 3
+use studentdb;
+
+
+
+-- Query 4
+db.posts.createCollection("posts");
+
+
+
+-- Query 5
+db.posts.insertOne({
+  title: "Post Title 1",
+  body: "Body of post.",
+  category: "News",
+  likes: 1,
+  tags: ["news","events"],
+  date: Date()
+});
+
+
+
+-- Query 6
+db.posts.insertMany([
+  { title: "Post 2", likes: 10 },
+  { title: "Post 3", likes: 5 }
+]);
+
+
+
+-- Query 7
+db.posts.find();
+
+
+
+-- Query 8
+db.posts.find().pretty();
+
+
+
+-- Query 9
+db.posts.find({ category: "News" });
+
+
+
+-- Query 10
+db.posts.updateOne(
+  { title: "Post Title 1" },
+  { $set: { likes: 20 } }
+);
+
+
+
+-- Query 11
+db.posts.deleteOne({ title: "Post 3" });
+
+
+
+-- Query 12
+db.posts.countDocuments();
+
+
+
+-- Query 13
+db.posts.find().sort({ likes: 1 });
+
+
+
+-- Query 14
+db.posts.find().sort({ likes: -1 });
